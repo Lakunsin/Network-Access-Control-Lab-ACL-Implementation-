@@ -13,10 +13,10 @@ Topology Type:
 The Tree / Hierarchical Star was used to stimulate a segmented corporate environment
 - Core Layer: 1x 2911 Router
 - 2x 2960 Switches
-  - Switch 1:
+  - Switch 1:  
         - Admin PC: 192.168.10.10 (The Protected Host)  
         - HR PC: 192.168.10.20
-  - Switch 2:
+  - Switch 2:  
         - IT PC: 192.168.20.10  
         - Guest PC: 192.168.20.20 (The Restricted Host)
 ## ACL Configuration

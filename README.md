@@ -45,7 +45,7 @@ STEP 3 — ALLOW ALL OTHER TRAFFIC
 access-list 100 permit ip any any
 
 STEP 4 — APPLY THE ACL TO THE INTERFACE  
-interface gigabitEthernet0/1
+interface gigabitEthernet0/1  
 ip access-group 100 in
 
 end

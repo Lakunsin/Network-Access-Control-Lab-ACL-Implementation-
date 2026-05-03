@@ -3,6 +3,9 @@
 ## Overview
 This project demonstrates how to implement Extended Access Control Lists (ACLs) to control communication between hosts in a simulated enterprise network using Cisco Packet Tracer.  
 
+## The Business Case
+In a corporate environment, unrestricted internal communication poses a significant security risk. If a guest device is compromised, it could be used for lateral movement to discover and attack sensitive management systems. This lab simulates Network Segmentation, ensuring that Guest users are restricted from accessing the Admin infrastructure while maintaining normal operations for the rest of the network.
+
 ## Objective
 - Block Guest PC from pinging Admin PC
 - Allow all other network communication
@@ -14,11 +17,11 @@ The Tree / Hierarchical Star was used to stimulate a segmented corporate environ
 - Core Layer: 1x 2911 Router
 - 2x 2960 Switches
   - Switch 1:  
-        - Admin PC: 192.168.10.10 (The Protected Host)  
+        - Admin PC: 192.168.10.10  
         - HR PC: 192.168.10.20
   - Switch 2:  
         - IT PC: 192.168.20.10  
-        - Guest PC: 192.168.20.20 (The Restricted Host)
+        - Guest PC: 192.168.20.20
 ## ACL Configuration
 Router>enable  
 Router#configure terminal  
@@ -46,3 +49,10 @@ interface gigabitEthernet0/1
 ip access-group 100 in
 
 end
+## Testing
+- pinging 192.168.10.10 (Admin PC) from 192.168.20.20 (Guest PC) failed  
+- Other traffic allowed
+
+## Author
+Lakunsin
+Aspiring SOC Analyst | Network Security | Threat Detection

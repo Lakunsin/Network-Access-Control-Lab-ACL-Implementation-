@@ -10,15 +10,42 @@ This project demonstrates how to implement Extended Access Control Lists (ACLs) 
 
 ## Network Topology
 Topology Type:
-Tree / Hierarchical Star
-        Router (Core)
-        /        \
-   Switch1     Switch2
-    /   \       /   \
-  PC1  PC2   PC3   PC4
-  
+The Tree / Hierarchical Star was used to stimulate a segmented corporate environment
+- Core Layer: 1x 2911 Router
+- 2x 2960 Switches
+  - Switch 1:
+        - Admin PC: 192.168.10.10 (The Protected Host)
+        - HR PC: 192.168.10.20
+  - Switch 2:
+        - IT PC: 192.168.20.10
+        - Guest PC: 192.168.20.20 (The Restricted Host)
+## ACL Configuration
+STEP 1 — ENTER CONFIG MODE  
+On the router CLI:  
+Router>enable  
+Router#configure terminal    
+STEP 2 — CREATE THE BLOCK RULE  
 
-Project Goal: Isolate PC4 from PC1 while maintaining overall network connectivity.  
-Topology: Hierarchical (Tree) topology using 1 Router and 2 Switches.  
-The Challenge: Resolving the "Two-Way ICMP" issue where blocking a source also blocks the return path.  
-The Solution: Implementing specific ICMP type filtering - echo  
+access-list 100 deny icmp host 192.168.20.20 host 192.168.10.10 echo
+
+📌 WHAT THIS DOES
+100 → extended ACL number
+deny icmp → blocks ping only
+192.168.20.20 → PC4 (source)
+192.168.10.10 → PC1 (destination)
+
+🚀 STEP 3 — ALLOW ALL OTHER TRAFFIC
+
+access-list 100 permit ip any any
+
+🚀 STEP 4 — APPLY THE ACL TO THE INTERFACE
+
+Now we attach the rule to the router port where PC4 traffic enters.
+
+interface gigabitEthernet0/1
+
+Press Enter.
+
+ip access-group 100 in
+
+Then exit or end

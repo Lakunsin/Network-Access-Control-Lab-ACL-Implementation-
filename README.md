@@ -11,7 +11,6 @@ This project demonstrates how to implement Extended Access Control Lists (ACLs) 
 ## Network Topology
 Topology Type:
 Tree / Hierarchical Star
-
         Router (Core)
         /        \
    Switch1     Switch2

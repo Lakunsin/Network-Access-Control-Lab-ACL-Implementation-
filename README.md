@@ -20,32 +20,29 @@ The Tree / Hierarchical Star was used to stimulate a segmented corporate environ
         - IT PC: 192.168.20.10
         - Guest PC: 192.168.20.20 (The Restricted Host)
 ## ACL Configuration
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#access-list 100 deny icmp host 192.168.20.20 host 192.168.10.10 echo
+Router(config)#access-list 100 permit ip any any
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#ip access-group 100 in
+Router(config-if)#end
+Router#
+
 STEP 1 — ENTER CONFIG MODE  
 On the router CLI:  
-Router>enable  
-Router#configure terminal    
-STEP 2 — CREATE THE BLOCK RULE  
+enable  
+configure terminal    
 
+STEP 2 — CREATE THE BLOCK RULE  
 access-list 100 deny icmp host 192.168.20.20 host 192.168.10.10 echo
 
-📌 WHAT THIS DOES
-100 → extended ACL number
-deny icmp → blocks ping only
-192.168.20.20 → PC4 (source)
-192.168.10.10 → PC1 (destination)
-
-🚀 STEP 3 — ALLOW ALL OTHER TRAFFIC
-
+STEP 3 — ALLOW ALL OTHER TRAFFIC
 access-list 100 permit ip any any
 
-🚀 STEP 4 — APPLY THE ACL TO THE INTERFACE
-
-Now we attach the rule to the router port where PC4 traffic enters.
-
+STEP 4 — APPLY THE ACL TO THE INTERFACE
 interface gigabitEthernet0/1
-
-Press Enter.
-
 ip access-group 100 in
 
-Then exit or end
+end

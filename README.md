@@ -55,4 +55,4 @@ end
 
 ## Author
 Lakunsin  
-Aspiring SOC Analyst | Network Security | Threat Detection
+Aspiring SOC Analyst | Network Security | Threat Detection | ISC2 candidate

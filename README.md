@@ -60,9 +60,9 @@ end
 - pinging 192.168.10.10 (Admin PC) from 192.168.20.20 (Guest PC) failed  
 - Other traffic allowed
 
-![ACL config](./Extended_ACL_ping_test_(Guest_PC))  
+![ACL config](./Extended_ACL_ping_test_Guest_PC)  
 
-![ACL config](./Extended_ACL_ping_test_(Admin_PC))  
+![ACL config](./Extended_ACL_ping_test_Admin_PC)  
  
 ## Author
 Lakunsin  

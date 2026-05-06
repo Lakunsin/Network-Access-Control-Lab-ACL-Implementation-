@@ -51,11 +51,19 @@ STEP 4 — APPLY THE ACL TO THE INTERFACE
 interface gigabitEthernet0/1  
 ip access-group 100 in
 
-end
+end  
+
+![ACL config](./Screenshots/Extended_ACL_interface_applied.png)
+
+
 ## Testing
 - pinging 192.168.10.10 (Admin PC) from 192.168.20.20 (Guest PC) failed  
 - Other traffic allowed
 
+![ACL config](./Extended_ACL_ping_test_(Guest_PC))  
+
+![ACL config](./Extended_ACL_ping_test_(Admin_PC))  
+ 
 ## Author
 Lakunsin  
 Aspiring SOC Analyst | Network Security | Threat Detection | ISC2 candidate

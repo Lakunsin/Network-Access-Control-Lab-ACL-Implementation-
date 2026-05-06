@@ -21,7 +21,10 @@ The Tree / Hierarchical Star was used to stimulate a segmented corporate environ
         - HR PC: 192.168.10.20
   - Switch 2:  
         - IT PC: 192.168.20.10  
-        - Guest PC: 192.168.20.20
+        - Guest PC: 192.168.20.20  
+
+![Topology](./Screenshots/Tree_(Hierarchical)_Topology.png)
+
 ## ACL Configuration
 Router>enable  
 Router#configure terminal  
